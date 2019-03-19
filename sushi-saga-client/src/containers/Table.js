@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import Sushi from '../components/Sushi'
+import Form from '../components/Form'
 
 const Table = (props) => {
 
@@ -19,6 +20,7 @@ const Table = (props) => {
           {renderPlates(props.eaten)}
         </div>
       </div>
+      <Form handleSubmit={props.handleSubmit} />
     </Fragment>
   )
 }

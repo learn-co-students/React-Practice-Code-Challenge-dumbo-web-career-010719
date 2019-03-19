@@ -46,12 +46,18 @@ class App extends Component {
     })
   }
 
+  handleSubmit = (input) => {
+    this.setState({
+      money: this.state.money + parseInt(input)
+    })
+  }
+
   render() {
     console.log(this.state);
     return (
       <div className="app">
         <SushiContainer sushis={this.state.sushis.slice(this.state.counter - 4, this.state.counter)} handleClickSushi={this.handleClickSushi} handleClickMore={this.handleClickMore} />
-        <Table sushis={this.state.sushis} money={this.state.money} eaten={this.state.eaten} />
+        <Table sushis={this.state.sushis} money={this.state.money} eaten={this.state.eaten} handleSubmit={this.handleSubmit} />
       </div>
     );
   }
