@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     sushis: [],
     money: 100,
-    eaten: []
+    eaten: [],
+    counter: 4
   }
 
   componentDidMount() {
@@ -39,11 +40,17 @@ class App extends Component {
     }
   }
 
+  handleClickMore = (e) => {
+    this.setState({
+      counter: this.state.counter + 4
+    })
+  }
+
   render() {
     console.log(this.state);
     return (
       <div className="app">
-        <SushiContainer sushis={this.state.sushis} handleClickSushi={this.handleClickSushi} />
+        <SushiContainer sushis={this.state.sushis.slice(this.state.counter - 4, this.state.counter)} handleClickSushi={this.handleClickSushi} handleClickMore={this.handleClickMore} />
         <Table sushis={this.state.sushis} money={this.state.money} eaten={this.state.eaten} />
       </div>
     );

@@ -5,11 +5,7 @@ const Sushi = (props) => {
     <div className="sushi">
       <div className="plate"
            onClick={(e) => props.handleClickSushi(e, props)}>
-        {
-          /* Tell me if this sushi has been eaten! */
-
-            <img src={props.sushi.img_url} width="100%" />
-        }
+        {<img src={props.sushi.img_url} width="100%" />}
       </div>
       <h4 className="sushi-details">
         {props.sushi.name} - ${props.sushi.price}
@@ -19,6 +15,3 @@ const Sushi = (props) => {
 }
 
 export default Sushi
-// true ?
-//   null
-// :
