@@ -3,18 +3,19 @@ import React, { Fragment } from 'react'
 const Sushi = (props) => {
   return (
     <div className="sushi">
-      <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
-        { 
-          /* Tell me if this sushi has been eaten! */ 
-          true ?
+      <div className="plate"
+           onClick={() => {props.handleEatClick(props.dish)}}>
+        {
+          // console.log(props.eaten.map((plate) => {return plate.created_at}))
+          props.eaten.map((plate) => {return plate.created_at}).includes(props.dish.created_at)
+           ?
             null
           :
-            <img src={/* Give me an image source! */} width="100%" />
+            <img src={props.dish.img_url} width="100%" />
         }
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {props.dish.name} - ${props.dish.price}
       </h4>
     </div>
   )
